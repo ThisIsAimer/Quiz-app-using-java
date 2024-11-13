@@ -3,6 +3,14 @@ import java.util.Scanner;
 public class QuestionService {
     Questions question[] = new Questions[5];
     Scanner input = new Scanner(System.in);
+
+    public QuestionService(){
+        question[0] = new Questions();
+        question[1] = new Questions();
+        question[2] = new Questions();
+        question[3] = new Questions();
+        question[4] = new Questions();
+    }
     
 
         void start() {
@@ -46,14 +54,10 @@ public class QuestionService {
                 System.out.print(question[i].getId()+" "+question[i].getQuestions());
                 System.out.println("--------------------------------------------------");
                 for(int j = 0; j<4;j++){
-                    System.out.print(question[i].getOptions[j]" ");
+                    System.out.print(question[i].options[j]+" ");
                 }
 
             }
-        }
-        
-    public static void main(String[] args) {
-        
-    }
+        }        
     
 }

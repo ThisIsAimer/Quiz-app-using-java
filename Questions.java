@@ -1,7 +1,7 @@
 public class Questions {
     private int id;
     private String questions;
-    private String options[] = new String[4];
+    public final String options[] = new String[4];
     private String selectedAnswer;
     private String answer;
     private String answerOption;

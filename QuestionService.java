@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
 public class QuestionService {
-    Questions question[] = new Questions[5];
-    Scanner input = new Scanner(System.in);
+    private Questions question[] = new Questions[5];
+    private Scanner input = new Scanner(System.in);
+    private String selectedAnswer[] = new String[5];
+    private int score = 0;
 
     public QuestionService(){
         question[0] = new Questions();
@@ -51,13 +53,28 @@ public class QuestionService {
 
             // function starts!
             for(int i = 0; i<5;i++){
-                System.out.print(question[i].getId()+" "+question[i].getQuestions());
                 System.out.println("--------------------------------------------------");
+                System.out.println(question[i].getId()+") "+question[i].getQuestions()+"\n");
                 for(int j = 0; j<4;j++){
-                    System.out.print(question[i].options[j]+" ");
+                    System.out.print(question[i].options[j]+"\n");
                 }
-
+                System.out.println("please enter your answer: ");
+                selectedAnswer[i] = input.nextLine();
             }
-        }        
+        }      
+        
+        void score(){
+
+            for(int i = 0; i<5 ; i++){
+                if (selectedAnswer[i].toUpperCase() == question[i].getAnswer().toUpperCase()){
+                    score++;
+                }
+                else if (selectedAnswer[i].toUpperCase() == question[i].getAnswerOption().toUpperCase()) {
+                    score++;
+                }
+            }
+            System.out.println("The number of questions you got right is: ");
+            System.out.print(score);
+        }
     
 }

@@ -2,7 +2,6 @@ public class Questions {
     private int id;
     private String questions;
     public final String options[] = new String[4];
-    private String selectedAnswer;
     private String answer;
     private String answerOption;
 
@@ -20,10 +19,6 @@ public class Questions {
 
     public String[] getOptions() {
         return options;
-    }
-
-    public String getSelectedAnswer() {
-        return selectedAnswer;
     }
 
     public String getAnswer() {
@@ -51,10 +46,6 @@ public class Questions {
             options[i] = item;
             i++;
         }
-    }
-
-    public void setSelectedAnswer(String selectedAnswer) {
-        this.selectedAnswer = selectedAnswer;
     }
 
     public void setAnswer(String answer) {

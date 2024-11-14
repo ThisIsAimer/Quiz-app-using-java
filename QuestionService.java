@@ -4,7 +4,6 @@ public class QuestionService {
     private Questions question[] = new Questions[5];
     private Scanner input = new Scanner(System.in);
     private String selectedAnswer[] = new String[5];
-    private int score = 0;
 
     public QuestionService(){
         question[0] = new Questions();
@@ -34,13 +33,14 @@ public class QuestionService {
             question[4].setQuestions("Whats the GDP of india?");
 
             // options
-            question[0].setOptions("A.Rahul Gandhi", "B.Narandra Modi", "C.Mahatma Gandhi", "D.APJ Abdulkalam");
+            question[0].setOptions("A.Rahul Gandhi", "B.Narendra Modi", "C.Mahatma Gandhi", "D.APJ Abdulkalam");
             question[1].setOptions("A.Moon", "B.Sun", "C.Earth", "D.Mars");
             question[2].setOptions("A.Japan", "B.France", "C.Afganistan", "D.Russia");
             question[3].setOptions("A.Indian Rupee", "B.Japanese Yen", "C.Us Dollar", "D.Euro");
             question[4].setOptions("A.10.56 trillion", "B.2.54 trillion", "C.6.87 trillion", "D.3.89 trillion");
-            // set answers
-            question[0].setAnswer("Narandra Modi");
+
+            //set answers
+            question[0].setAnswer("Narendra Modi");
             question[0].setAnswerOption("B");
             question[1].setAnswer("Earth");
             question[1].setAnswerOption("C");
@@ -60,21 +60,28 @@ public class QuestionService {
                 }
                 System.out.println("please enter your answer: ");
                 selectedAnswer[i] = input.nextLine();
+            
             }
+
         }      
         
         void score(){
 
+            int score = 0;
+
             for(int i = 0; i<5 ; i++){
-                if (selectedAnswer[i].toUpperCase() == question[i].getAnswer().toUpperCase()){
+                if (selectedAnswer[i].toUpperCase().equals(question[i].getAnswer().toUpperCase())){
                     score++;
                 }
-                else if (selectedAnswer[i].toUpperCase() == question[i].getAnswerOption().toUpperCase()) {
+                if (selectedAnswer[i].toUpperCase().equals(question[i].getAnswerOption().toUpperCase())) {
                     score++;
                 }
             }
-            System.out.println("The number of questions you got right is: ");
+
+            System.out.println("the number of answers you got right are:");
             System.out.print(score);
+            
+            
         }
     
 }
